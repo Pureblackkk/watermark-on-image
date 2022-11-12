@@ -1,7 +1,7 @@
 import { WaterMarkkk } from 'src/tool-chain/tool-chain';
 
 new WaterMarkkk()
-.loadSrc('./assets/src-img/2.jpg')
+.loadSrc('./assets/src-img/2.jpeg')
 .markImage([
     './assets/mark-img/1.png',
 ])
