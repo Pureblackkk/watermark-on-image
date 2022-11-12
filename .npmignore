@@ -1,0 +1,16 @@
+#tests
+test
+coverage
+jest.config.js
+
+# build tools
+scripts
+tsconfig.json
+
+# linters
+.eslintrc.js
+
+# Others
+node_modules
+LICENSE
+README.md
