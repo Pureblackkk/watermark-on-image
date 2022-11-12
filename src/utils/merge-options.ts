@@ -15,6 +15,10 @@ export function mergeOptions<T>(deafult: T, target: Partial<T>): T {
         }
         return res;
     } else {
-        return deafult;
+        if (target === undefined) {
+            return deafult;
+        } else {
+            return target as T;
+        }
     }
 }

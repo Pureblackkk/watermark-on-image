@@ -7,6 +7,7 @@ const mockDefault = {
         c1: 'this is c1',
         c2: 'this is c2',
     },
+    d: undefined,
 };
 
 describe('Merge Option Test', () => {
@@ -18,6 +19,7 @@ describe('Merge Option Test', () => {
                 c1: undefined,
                 c2: 'this is mock c2',
             },
+            d: undefined,
         };
 
         //@ts-ignore
@@ -28,6 +30,7 @@ describe('Merge Option Test', () => {
                 c1: 'this is c1',
                 c2: 'this is mock c2',
             },
+            d: undefined,
         });
     });
 
@@ -39,6 +42,10 @@ describe('Merge Option Test', () => {
                 c1: 'this is mock c1',
                 c2: 'this is mock c2',
             },
+            d: {
+                d1: 'this is mock d1',
+                d2: 'this is mock d2',
+            }
         };
 
         //@ts-ignore
@@ -48,6 +55,10 @@ describe('Merge Option Test', () => {
             c: {
                 c1: 'this is mock c1',
                 c2: 'this is mock c2',
+            },
+            d: {
+                d1: 'this is mock d1',
+                d2: 'this is mock d2',
             },
         });
     });

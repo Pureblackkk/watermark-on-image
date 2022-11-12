@@ -134,7 +134,12 @@
             return res;
         }
         else {
-            return deafult;
+            if (target === undefined) {
+                return deafult;
+            }
+            else {
+                return target;
+            }
         }
     }
 
@@ -214,7 +219,11 @@
         function ImageExporter() {
         }
         ImageExporter.export = function (src, exportOptions) {
-            var type = exportOptions.type, quality = exportOptions.quality;
+            var type = exportOptions.type, quality = exportOptions.quality, size = exportOptions.size;
+            if (!!size) {
+                var width_1 = size.width, height_1 = size.height;
+                src = src.map(function (canvas) { return ImageExporter.reSize(canvas, width_1, height_1); });
+            }
             switch (type) {
                 case 'canvas':
                     return ImageExporter.toCanvas(src);
@@ -226,6 +235,18 @@
                 default:
                     return ImageExporter.toPNG(src, quality);
             }
+        };
+        ImageExporter.reSize = function (canvas, width, height) {
+            if (width === undefined && height === undefined)
+                return canvas;
+            var newWidth = width !== null && width !== void 0 ? width : canvas.width;
+            var newHeight = height !== null && height !== void 0 ? height : canvas.height;
+            var newCanvas = document.createElement('canvas');
+            newCanvas.width = newWidth;
+            newCanvas.height = newHeight;
+            var newCtx = newCanvas.getContext('2d');
+            newCtx === null || newCtx === void 0 ? void 0 : newCtx.drawImage(canvas, 0, 0, canvas.width, canvas.height, 0, 0, newWidth, newHeight);
+            return newCanvas;
         };
         ImageExporter.toCanvas = function (src) {
             return src;
@@ -570,10 +591,11 @@
      * Prehandle export options
      */
     function preHandleExport(options) {
-        var type = options.type, quality = options.quality;
+        var type = options.type, quality = options.quality, size = options.size;
         return {
             type: type !== null && type !== void 0 ? type : 'png',
             quality: (quality === undefined) ? 1.0 : rangeNumValue(0, 1, quality),
+            size: size,
         };
     }
 

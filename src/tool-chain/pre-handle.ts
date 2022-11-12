@@ -95,9 +95,10 @@ export function preHandleExport(options: {
         quality?: number, 
         size?: { width?: number, height?: number }
 }) {
-    const { type, quality } = options;
+    const { type, quality, size } = options;
     return {
         type: type ?? 'png',
         quality: (quality === undefined) ? 1.0 : rangeNumValue(0, 1, quality),
+        size,
     };
 }
