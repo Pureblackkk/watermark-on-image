@@ -1,5 +1,4 @@
 import { isBrowser, isNode } from 'utils/env';
-import { loadImage, Image as NodeImage } from 'canvas';
 
 export class ImageLoader {
     public static async loadImage(src: (string | HTMLImageElement)[] | undefined) {
@@ -36,15 +35,8 @@ export class ImageLoader {
         return Promise.all<HTMLImageElement>(loadPromiseArray);
     }
 
-    // load under node environment
+    // TODO: load under node environment
     private static async nodeLoad(src: (string | HTMLImageElement)[]) {
-        const loadPromiseArray: Promise<NodeImage>[] = [];
-
-        for (let urlPath of src) {
-            if (typeof urlPath !== 'string') continue;
-            loadPromiseArray.push(loadImage(urlPath));
-        }
-
-        return loadPromiseArray;
+        return [];
     }
 }

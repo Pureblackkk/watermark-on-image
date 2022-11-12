@@ -21,20 +21,21 @@ describe('Base Painter Class Test', () => {
             markSpacing: { v: 1, h: 1, },
         };
         const expectedPositionArray = [
-            [0, 2, 0],
-            [3, 2, 1],
-            [8, 2, 2],
-            [0, 4, 3],
-            [9, 4, 0],
-            [0, 6, 1],
-            [5, 6, 2],
-            [0, 8, 3],
-            [9, 8, 0],
+            [0, 1, 0],
+            [3, 1, 1],
+            [8, 1, 2],
+            [0, 3, 3],
+            [9, 3, 0],
+            [0, 5, 1],
+            [5, 5, 2],
+            [0, 7, 3],
+            [9, 7, 0],
+            [0, 9, 1],
+            [5, 9, 2],
         ].map(([x, y, itemIndex]) => generatePositionArrayObject(x, y, itemIndex));
 
         //@ts-ignore
         const positionArray = testBasePainer.generateDrawPositionsArray(mockMetaInfo, mockItemsWidth, painterOptions);
-        console.log(positionArray);
         positionArray.forEach(({x, y, itemIndex}, index) => {
             const { x: expectedX, y: expectedY, itemIndex: expectedItemIndex } = expectedPositionArray[index];
             expect(x).toEqual(expectedX);

@@ -38,7 +38,6 @@ export class BasePainter {
         ctx.drawImage(src, 0, 0);
 
         // Get row length array based on the image size and cross axis
-        // TODO: handle string and number problem
         const rowLenArray = getRowLenArray(
             width,
             height,

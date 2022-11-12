@@ -1,9 +1,9 @@
-import { ExportType } from 'tool-chain/options';
+import { ExportType, IMarkTextOptions } from 'tool-chain/options';
 
 export interface IToolChain {
     loadSrc: (src: string | string[]) => IToolChain;
     markImage: (mark: string | HTMLImageElement | (string | HTMLImageElement)[]) => IToolChain;
-    markText: (mark: string | string[]) => IToolChain;
+    markText: (mark: string | string[], textOptions?: IMarkTextOptions) => IToolChain;
     markRotation: (rotation: number | string) => IToolChain;
     markOpicity: (opicity: number) => IToolChain;
     markSpacing: (vertical: string | number, horizontal: string | number) => IToolChain;

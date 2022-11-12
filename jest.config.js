@@ -7,5 +7,5 @@ export default {
   moduleNameMapper: {
     'src/(.*)': '<rootDir>/src/$1',
   },
-  testRegex: '(/test/browser/.*|(\\.|/)(test|spec))\\.(tsx|ts)?$',
+  testRegex: '(/test/.*|(\\.|/)(test|spec))\\.(tsx|ts)?$',
 };

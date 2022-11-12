@@ -5,7 +5,7 @@ import copy from 'rollup-plugin-copy'
 import { babel } from '@rollup/plugin-babel';
 
 export default {
-    input: "src/index.ts",
+    input: "test/example/index.ts",
     output: {
       file: "dist/bundle.js",
       format: "umd",
@@ -19,7 +19,7 @@ export default {
         typescript(),
         copy({
             targets: [
-              { src: 'src/index.html', dest: 'dist' },
+              { src: 'test/example/index.html', dest: 'dist' },
               { src: 'test/assets', dest: 'dist' }
             ],
         }),

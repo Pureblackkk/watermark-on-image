@@ -29,10 +29,11 @@ describe('Math Utils Test', () => {
                 maxHeight,
                 verticalSpacing,
             )).toEqual([
-                [2, 10, 0],
-                [4, 10, 0],
-                [6, 10, 0],
-                [8, 10, 0],
+                [1, 10, 0],
+                [3, 10, 0],
+                [5, 10, 0],
+                [7, 10, 0],
+                [9, 10, 0],
             ].map(([y, distance, x]) => getRowLenObject(y, distance, x)));
         });
 
@@ -44,10 +45,11 @@ describe('Math Utils Test', () => {
                 maxHeight,
                 verticalSpacing,
             )).toEqual([
-                [-2, 10, -10],
-                [-4, 10, -10],
-                [-6, 10, -10],
-                [-8, 10, -10],
+                [-1, 10, -10],
+                [-3, 10, -10],
+                [-5, 10, -10],
+                [-7, 10, -10],
+                [-9, 10, -10],
             ].map(([y, distance, x]) => getRowLenObject(y, distance, x)));
         });
 
@@ -59,11 +61,11 @@ describe('Math Utils Test', () => {
                 maxHeight,
                 verticalSpacing,
             )).toEqual([
-                [-8, 10, 0],
-                [-6, 10, 0],
-                [-4, 10, 0],
-                [-2, 10, 0],
-                [0, 10, 0],
+                [-9, 10, 0],
+                [-7, 10, 0],
+                [-5, 10, 0],
+                [-3, 10, 0],
+                [-1, 10, 0],
             ].map(([y, distance, x]) => getRowLenObject(y, distance, x)));
         });
 
@@ -75,22 +77,22 @@ describe('Math Utils Test', () => {
                 maxHeight,
                 verticalSpacing,
             );
-
+            
             const expectRowLenRes = [
-                [-halfDaigLen + 2, 4, -2 + halfDaigLen],
-                [-halfDaigLen + 4, 8, -4 + halfDaigLen],
-                [-halfDaigLen + 6, 12, -6 + halfDaigLen],
-                [-halfDaigLen + 8, 2 * (diagLen - 8), -8 + halfDaigLen],
-                [-halfDaigLen + 10, 2 * (diagLen - 10), -10 + halfDaigLen],
-                [-halfDaigLen + 12, 2 * (diagLen - 12), -12 + halfDaigLen],
-                [-halfDaigLen + 14, 2 * (diagLen - 14), -14 + halfDaigLen],
+                [-halfDaigLen + 1, 2, -1 + halfDaigLen],
+                [-halfDaigLen + 3, 6, -3 + halfDaigLen],
+                [-halfDaigLen + 5, 10, -5 + halfDaigLen],
+                [-halfDaigLen + 7, 14, -7 + halfDaigLen],
+                [-halfDaigLen + 9, 2 * (diagLen - 9), 9 - halfDaigLen],
+                [-halfDaigLen + 11, 2 * (diagLen - 11), 11 - halfDaigLen],
+                [-halfDaigLen + 13, 2 * (diagLen - 13), 13 - halfDaigLen],
             ].map(([y, distance, x]) => getRowLenObject(y, distance, x)); 
 
             rowLenRes.forEach(({currentY, startX, distance}, index) => {
                 const { currentY: expectedY, startX: expectedStartX, distance: expectDistance } = expectRowLenRes[index];
-                expect((expectedY - currentY) < 1e-5).toEqual(true);
-                expect((expectedStartX - startX) < 1e-5).toEqual(true);
-                expect((expectDistance - distance) < 1e-5).toEqual(true);
+                expect(Math.abs(expectedY - currentY) < 1e-5).toEqual(true);
+                expect(Math.abs(expectedStartX - startX) < 1e-5).toEqual(true);
+                expect(Math.abs(expectDistance - distance) < 1e-5).toEqual(true);
             });
         });
 
@@ -102,22 +104,22 @@ describe('Math Utils Test', () => {
                 maxHeight,
                 verticalSpacing,
             );
-
-            const expectRowLenRes = [
-                [-2, 4, -2],
-                [-4, 8, -4],
-                [-6, 12, -6],
-                [-8, 2 * (diagLen - 8), 8 - diagLen],
-                [-10, 2 * (diagLen - 10), 10 - diagLen],
-                [-12, 2 * (diagLen - 12), 12 - diagLen],
-                [-14, 2 * (diagLen - 14), 14 - diagLen],
-            ].map(([y, distance, x]) => getRowLenObject(y, distance, x)); 
             
+            const expectRowLenRes = [
+                [-1, 2, -1],
+                [-3, 6, -3],
+                [-5, 10, -5],
+                [-7, 14, -7],
+                [-9, 2 * (diagLen - 9), 9 - diagLen],
+                [-11, 2 * (diagLen - 11), 11 - diagLen],
+                [-13, 2 * (diagLen - 13), 13 - diagLen],
+            ].map(([y, distance, x]) => getRowLenObject(y, distance, x));
+
             rowLenRes.forEach(({currentY, startX, distance}, index) => {
                 const { currentY: expectedY, startX: expectedStartX, distance: expectDistance } = expectRowLenRes[index];
-                expect((expectedY - currentY) < 1e-5).toEqual(true);
-                expect((expectedStartX - startX) < 1e-5).toEqual(true);
-                expect((expectDistance - distance) < 1e-5).toEqual(true);
+                expect(Math.abs(expectedY - currentY) < 1e-5).toEqual(true);
+                expect(Math.abs(expectedStartX - startX) < 1e-5).toEqual(true);
+                expect(Math.abs(expectDistance - distance) < 1e-5).toEqual(true);
             });
         });
     });

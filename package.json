@@ -1,19 +1,20 @@
 {
-  "name": "watermark",
+  "name": "watermark-on-image",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A general image watermark library",
+  "main": "./dist/index.js",
+  "browser": "./dist/index.js",
   "scripts": {
     "clean": "rm -rf dist",
     "start": "npm run clean && cross-env NODE_ENV=development rollup -w -c scripts/rollup.config.dev.js",
     "build": "npm run clean && cross-env NODE_ENV=production rollup -c scripts/rollup.config.prod.js",
-    "test-browser": "jest --coverage --config ./jest.config.browser.js",
-    "test-node": "jest --coverage --config ./jest.config.node.js"
+    "test": "jest --coverage --config ./jest.config.js"
   },
-  "author": "",
+  "author": "Pureblackkk",
   "license": "ISC",
   "devDependencies": {
     "@rollup/plugin-babel": "^6.0.2",
+    "@rollup/plugin-json": "^5.0.1",
     "@types/jest": "^29.2.2",
     "@typescript-eslint/eslint-plugin": "^5.40.1",
     "@typescript-eslint/parser": "^5.40.1",
@@ -25,15 +26,14 @@
     "rollup": "^3.2.3",
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-copy-assets": "^2.0.3",
+    "rollup-plugin-filesize": "^9.1.2",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-serve": "^2.0.1",
     "rollup-plugin-typescript": "^1.0.1",
+    "rollup-plugin-typescript2": "^0.34.1",
+    "ts-jest": "^29.0.3",
     "tslib": "^2.4.1",
     "typescript": "^4.8.4"
   },
-  "type": "module",
-  "dependencies": {
-    "canvas": "^2.10.2",
-    "ts-jest": "^29.0.3"
-  }
+  "type": "module"
 }
