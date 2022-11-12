@@ -4,6 +4,7 @@
   "description": "A general image watermark library",
   "main": "./dist/index.js",
   "browser": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "clean": "rm -rf dist",
     "start": "npm run clean && cross-env NODE_ENV=development rollup -w -c scripts/rollup.config.dev.js",
@@ -26,6 +27,7 @@
     "rollup": "^3.2.3",
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-copy-assets": "^2.0.3",
+    "rollup-plugin-dts": "^5.0.0",
     "rollup-plugin-filesize": "^9.1.2",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-serve": "^2.0.1",
