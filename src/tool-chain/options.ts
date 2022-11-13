@@ -32,7 +32,7 @@ export interface IExportOptions {
 }
 
 export interface IWaterMarkOptions {
-    srcImage: string[],
+    srcImage: (string | HTMLImageElement)[],
     markImage: (string | HTMLImageElement)[],
     markText: string[],
     markTextOptions: IMarkTextOptions,

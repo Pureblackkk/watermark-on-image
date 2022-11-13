@@ -26,7 +26,7 @@ export class WaterMarkkk extends BaseToolChains<OptionType> implements IToolChai
      * Set source image
      * Recieve a single source image or a array of images
      */
-    public loadSrc(src: string | string[]) {
+    public loadSrc(src: string | HTMLImageElement | (string | HTMLImageElement)[]) {
         const runFunc = () => {
             this.recievedOptions['srcImage'] = preHandleArrayForm(src);
         }

@@ -22,7 +22,7 @@ interface IMarkTextOptions {
 }
 
 interface IToolChain {
-    loadSrc: (src: string | string[]) => IToolChain;
+    loadSrc: (src: string | HTMLImageElement | (string | HTMLImageElement)[]) => IToolChain;
     markImage: (mark: string | HTMLImageElement | (string | HTMLImageElement)[]) => IToolChain;
     markText: (mark: string | string[], textOptions?: IMarkTextOptions) => IToolChain;
     markRotation: (rotation: number | string) => IToolChain;
@@ -40,7 +40,7 @@ declare class WaterMarkkk extends BaseToolChains<OptionType> implements IToolCha
      * Set source image
      * Recieve a single source image or a array of images
      */
-    loadSrc(src: string | string[]): this;
+    loadSrc(src: string | HTMLImageElement | (string | HTMLImageElement)[]): this;
     markImage(mark: string | HTMLImageElement | (string | HTMLImageElement)[]): this;
     markText(mark: string | string[], textOptions?: IMarkTextOptions): this;
     markRotation(markRotation: number | string): this;
