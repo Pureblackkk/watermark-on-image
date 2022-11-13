@@ -3,13 +3,13 @@ This is a general image watermark library for web browser, which supports markin
 
 
 # Installing
-```
+```bash
 npm install watermark-on-image
 ```
 
 # Usage
 Using the chaining calling to load source images, mark images or texts, and other related options. It supports receiving url paths and Image objects.
-```
+```js
 // Mark Image
 new WaterMarkkk()
 .loadSrc('src/1.png')
@@ -43,21 +43,21 @@ new WaterMarkkk()
 + **loadSrc**
 
     Recieve single path, Image object or the array of them. Each image in the array will be processed by the same configuration.
-    ```
+    ```typescript
     loadSrc(src: string | HTMLImageElement | (string | HTMLImageElement)[])
     ```
 
 + **markImage**
     
     Same with loadSrc method
-    ```
+    ```typescript
     markImage(mark: string | HTMLImageElement | (string | HTMLImageElement)[])
     ```
 
 + **markText**
     
     Recieve a single string or the array of strings to mark. All the texts will be ordered repeatedly to cover the whole image. You can also set related options for texts.
-    ```
+    ```typescript
     markText(mark: string | string[], textOptions?: {
         color?: string,
         font?: string
@@ -67,14 +67,14 @@ new WaterMarkkk()
 + **markRotation**
 
     Set for the rotation angle (0 degree - 180 degree) of mark. Recieve number (ie. Math.PI) or string (ie. "30 deg"). Here the number must be in the unit degree (Math.PI).
-    ```
+    ```typescript
     markRotation: (rotation: number | string) => IToolChain;
     ```
     Default: 0
 + **markOpicity**
 
     Set the mark opicity (0 - 1).
-    ```
+    ```typescript
     markOpicity: (opicity: number)
     ```
     Default: 1.0
@@ -83,7 +83,7 @@ new WaterMarkkk()
 
     Set markers' vertical and horizontal spacing distance (in the unit of px). Recieve string (ie. "30 px") or number (ie. 30).
 
-    ```
+    ```typescript
     markSpacing: (vertical: string | number, horizontal: string | number) => IToolChain;
     ```
     Default: 
@@ -95,7 +95,7 @@ new WaterMarkkk()
 
     Must be called to get marked img result. It will return a list of img based on the format you choose. It provides four options: 'jpeg', 'png', 'webp' and 'canvas'. Here 'canvas' refers to the HTMLCanvasElement. Except for canvas, all the other forms of image will be returned as URI string. It also provides quality (0 - 1) and size options.
 
-    ```
+    ```typescript
     getImage: (type?: ExportType, quality?: number, size?: {
         width?: number;
         height?: number;
