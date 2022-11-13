@@ -1,6 +1,6 @@
 {
   "name": "watermark-on-image",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A general image watermark library for web",
   "main": "./dist/index.umd.js",
   "browser": "./dist/index.esm.js",
