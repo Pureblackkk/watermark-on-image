@@ -41,5 +41,11 @@
     "type": "git",
     "url": "git@github.com:Pureblackkk/watermark-on-image.git"
   },
+  "keywords": [
+    "canvas",
+    "watermark",
+    "image",
+    "text"
+  ],
   "type": "module"
 }

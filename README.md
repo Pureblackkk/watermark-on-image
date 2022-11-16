@@ -63,12 +63,15 @@ new WaterMarkkk()
         font?: string
     })    
     ```
-    Default: 'WaterMarkkk'
+    Default: 
+    + mark: 'WaterMarkkk'
+    + color: 'black'
+    + font: 'bold 24px serif'
 + **markRotation**
 
     Set for the rotation angle (0 degree - 180 degree) of mark. Recieve number (ie. Math.PI) or string (ie. "30 deg"). Here the number must be in the unit degree (Math.PI).
     ```typescript
-    markRotation: (rotation: number | string) => IToolChain;
+    markRotation: (rotation: number | string);
     ```
     Default: 0
 + **markOpicity**
@@ -84,7 +87,7 @@ new WaterMarkkk()
     Set markers' vertical and horizontal spacing distance (in the unit of px). Recieve string (ie. "30 px") or number (ie. 30).
 
     ```typescript
-    markSpacing: (vertical: string | number, horizontal: string | number) => IToolChain;
+    markSpacing: (vertical: string | number, horizontal: string | number);
     ```
     Default: 
     + vertical: 20
